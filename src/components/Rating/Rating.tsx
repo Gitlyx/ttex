@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { RatingButton } from '../RatingButton/RatingButton';
 import { RatingText } from '../Stats/Stats';
-import { incrementPositive, incrementNegative, incrementNeutral } from '../Stats/statsSlice';
+import { incrementPositive, incrementNegative, incrementNeutral, setZero } from '../Stats/statsSlice';
 
 
 export const Rating = ( ) => {
   const dispacher = useDispatch();
-
     return (
       <>
         <div>
@@ -17,14 +16,21 @@ export const Rating = ( ) => {
             onClick={() => dispacher(incrementPositive())}
           />
           <RatingButton
-            text='Positive'
-            color='primary'
+            text='Neutral'
+            color='info'
             onClick={() => dispacher(incrementNeutral())}
           />
           <RatingButton
-            text='Positive'
+            text='Negative'
             color='error'
             onClick={() => dispacher(incrementNegative())}
+          />
+        </div>
+        <div>
+          <RatingButton
+            text='Reset'
+            color='secondary'
+            onClick={() => dispacher(setZero())}
           />
         </div>
         <RatingText />

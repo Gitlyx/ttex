@@ -1,12 +1,12 @@
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 interface RatingButtonProps {
-    text: string;
-    onClick: () => any;
-    color: 'success' | 'primary' | 'error';
+  text: string;
+  onClick: () => any;
+  color: 'success' | 'primary' | 'error' | 'warning' | 'info' | 'secondary';
 }
 
-export const RatingButton = ({text, onClick, color}: RatingButtonProps) => {
+export const RatingButton = ({ text, onClick, color }: RatingButtonProps) => {
   const dispatcher = useDispatch();
   return (
     <Button
@@ -14,8 +14,9 @@ export const RatingButton = ({text, onClick, color}: RatingButtonProps) => {
       variant='contained'
       color={color}
       onClick={() => dispatcher(onClick())}
+      style={{ width: '200px' }}
     >
       {text}
     </Button>
   );
-}
+};

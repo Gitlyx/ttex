@@ -23,11 +23,16 @@ export const statsSlice = createSlice({
     incrementNegative: (state) => {
       state.negative += 1;
     },
+    setZero: (state) => {
+      state.positive = 0;
+      state.neutral = 0;
+      state.negative = 0;
+    },
   },
 });
 
 
-export const { incrementNegative, incrementNeutral, incrementPositive } =
+export const { incrementNegative, incrementNeutral, incrementPositive, setZero } =
   statsSlice.actions;
 
 export const statsReducer = statsSlice.reducer;
